@@ -1,0 +1,36 @@
+Baseball Catcher Framing Model
+
+This project focuses on developing a machine learning model to quantify a catcher's pitch framing ability—the extent to which a catcher influences an umpire's ball/strike decision independent of the quality and location of the pitch. The objective is to isolate the catcher's contribution to called strikes while producing a model that is both accurate and stable from season to season.
+
+To accomplish this, the model is trained using pitch-level tracking data and can incorporate any combination of available variables, such as pitch location, count, pitcher, batter, umpire, handedness, pitch characteristics, and game context. The primary target is whether a taken pitch was called a strike.
+
+The completed project consists of three components:
+
+Predictive Model
+
+A reusable trained model that estimates the probability of a called strike for every taken pitch.
+The model is designed to estimate the expected strike probability for an average catcher, allowing the residual difference between expected and actual outcomes to be attributed to catcher framing skill.
+
+Production Pipeline
+
+A production script that loads new pitch-level tracking data (new_data.csv), applies the trained model, and automatically generates two output files:
+pitch_level_predictions.csv, containing:
+Pitch ID
+Actual called strike indicator
+Predicted probability of a called strike
+new_output.csv, which aggregates results by catcher and season, including:
+Catcher ID
+Season
+Framing opportunities (taken pitches)
+Actual called strikes
+Called strikes added relative to an average catcher
+Called strikes added per 100 opportunities
+
+The script is designed to work on future datasets containing new catchers, pitchers, batters, and umpires, provided the data schema remains consistent.
+
+Model Documentation
+
+A concise report describing the modeling process, feature selection, validation strategy, and performance evaluation.
+Particular emphasis is placed on year-to-year predictiveness, ensuring that framing estimates reflect repeatable catcher skill rather than noise or season-specific variation.
+
+Overall, the project demonstrates an end-to-end analytics workflow, from model development and validation to production deployment. Rather than simply predicting called strikes, the goal is to produce an interpretable framing metric that estimates how many additional (or fewer) called strikes a catcher generates compared with an average receiver, providing a practical evaluation tool for baseball operations and player assessment.
