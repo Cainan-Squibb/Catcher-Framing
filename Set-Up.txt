@@ -16,7 +16,7 @@ To run this project on your own computer follow these steps:
 
 5. Install the required packages using the command: pip install -r requirements.txt
 
-6.  You should now be able to run the project with the lines:
+6.  You should now be able to run the project with the lines below, please run model.py first to create and train the model used in production.py:
 
     Windows:
       python model.py
@@ -25,6 +25,7 @@ To run this project on your own computer follow these steps:
     MAC/Linux:
       python3 model.py
       python3 production.py
+
 
 
 
